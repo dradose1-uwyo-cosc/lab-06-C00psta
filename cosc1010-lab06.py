@@ -1,9 +1,9 @@
-# Your Name Here
+# Cooper Lilly
 # UWYO COSC 1010
-# Submission Date
+# Submission Date 10/16/24
 # Lab 06
-# Lab Section: 
-# Sources, people worked with, help given to: 
+# Lab Section: 13
+# Sources, people worked with, help given to: https://stackoverflow.com/questions/4326658/how-to-index-into-a-dictionary
 # your
 # comments
 # here
@@ -66,9 +66,29 @@ print(len(random_string)) # Print out the size for reference
 
 # Above is a string with 2500 characters.
 # Create a program that goes through and counts the occurrence of each character, excluding \n using a  dictionary
+character={}
+for characters in random_string:
+    if characters not in character:
+        character[characters] = 1
+    else: 
+        character[characters] += 1
+
 # Output each letter and its corresponding occurrence in alphabetical order
+
+for num in sorted(character.keys()):
+    print(num,"-",character[num])
+
+
 # Output which letter occurred the most 
+most_occurred = "a"
+for key in character.keys():
+    if character[key] > character[most_occurred]:
+        most_occurred = key
 # Output which letter occurred the least 
+least_occurred = "a"
+for key in character.keys():
+    if character[key] < character[least_occurred]:
+        least_occurred = key
 # Output what the percentage of the string each character is, again in alphabetical
 
 #Tips and trick:
@@ -88,8 +108,7 @@ print(len(random_string)) # Print out the size for reference
 print("*"*75)
 # Output which letter occurred the most 
 
-most_occurred = ""
-least_occurred = ""
+
 
 print(f"The letter that occurred the most is {most_occurred}")
 print("*"*75)
@@ -98,3 +117,5 @@ print(f"The letter that occurred the most is {least_occurred}")
 print("*"*75)
 
 # Output what the percentage of the string each character is, again in alphabetical
+for num in sorted(character.keys()):
+    print(num,"-",character[num]/2500*100,"%")
